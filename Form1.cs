@@ -44,12 +44,13 @@ namespace seaBass
             {
                 this.Hide();
                 operations.decrypt();
+    
             }
             if (radioEncypt.Checked == true)
             {
                 operations.encrypt();
                 this.Hide();
-
+                //taco
             }
             if (radioKeyGen.Checked == true)
             {
