@@ -138,7 +138,7 @@
             this.Controls.Add(this.txtDecyptKeyIn);
             this.Controls.Add(this.lblDecryptKey);
             this.Name = "DecyptFrm";
-            this.Text = "DecyptFrm";
+            this.Text = "Show me the message";
             this.Load += new System.EventHandler(this.DecyptFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
