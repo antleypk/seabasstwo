@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace seaBass
+{
+    public partial class StartUpForm : Form
+    {
+        public StartUpForm()
+        {
+            InitializeComponent();
+
+
+          
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void StartUpForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void groupBoxStartOptions_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            Operator operations = new Operator();
+
+            if (radioDecrypt.Checked == true)
+            {
+                this.Hide();
+                operations.decrypt();
+            }
+            if (radioEncypt.Checked == true)
+            {
+                operations.encrypt();
+                this.Hide();
+
+            }
+            if (radioKeyGen.Checked == true)
+            {
+                
+            }
+           
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            resetStartButtons();
+
+        }
+
+        public void resetStartButtons()
+        {
+            radioEncypt.Checked = false;
+            radioDecrypt.Checked = false;
+            radioKeyGen.Checked = false;
+        }
+        private void radioDecrypt_CheckedChanged(object sender, EventArgs e)
+        {
+
+            //resetStartButtons();
+            radioDecrypt.Checked = true;
+
+           
+        }
+    }
+}
