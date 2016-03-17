@@ -16,7 +16,7 @@ namespace seaBass
         }
 
 
-        private void messageIn(String OrginalMessage)
+        private void messageIn(String OriginalMessage)
         {
             
         }
@@ -30,8 +30,31 @@ namespace seaBass
 
             List<List<Int32>> keyList = letterDistributionMK2(key);
             bool encoded = false;
+            List<Char> alphabetList = new List<char>();
+            String alphabetString = "abcdefghijklmnopqrstuvwxyz ";
+            // For loop populates alphabetList from the alphabetList String
+            for (int c = 0; c < alphabetString.Count(); c++)
+            {
+                char temp = alphabetString.ElementAt(c);
+                alphabetList.Add(temp);
+            } 
             for (int b = 0; b < message.Count(); b++)
             {
+
+                for (int a = 0; a < alphabetList.Count(); a++)
+                {
+                    char temp = message.ElementAt(b);
+                    if (temp == alphabetList.ElementAt(a))
+                    {
+                        Random r = new Random();
+                        int index = r.Next(1, keyList.ElementAt(a).Count());
+                        newMessage = newMessage + "-" + keyList.ElementAt(a).ElementAt(index) + "_";
+                        keyList.ElementAt(a).RemoveAt(index);
+                    }
+                }
+
+                /*
+
 
                 if (message.ElementAt(b) == 'a' && encoded == false)
                 {
@@ -94,7 +117,7 @@ namespace seaBass
 
 
 
-
+    
                 if (encoded == false)
                 {
                     newMessage = newMessage + message.ElementAt(b);
@@ -103,7 +126,7 @@ namespace seaBass
 
 
                 encoded = false;
-
+                */
             }
 
             return newMessage;
@@ -114,29 +137,29 @@ namespace seaBass
 
         
 
-        public string deConCeal(string codedMessge, string key)
+        public string deConCeal(string codedMessage, string key)
         {
             string cleanedMessage = "";
 
-            codedMessge.ToLower();
+            codedMessage.ToLower();
             key.ToLower();
             bool start = false;
             bool finish = false;
             string tempIndex="";
             string indexkeys = "";
             string lettersFromKey = "";
-            for (int i = 0; i < codedMessge.Count(); i++)
+            for (int i = 0; i < codedMessage.Count(); i++)
             {
                 if(start==false && finish == false)
                 {
-                    if (codedMessge.ElementAt(i) != '-')
+                    if (codedMessage.ElementAt(i) != '-')
                     {
-                        cleanedMessage = cleanedMessage + codedMessge.ElementAt(i);
+                        cleanedMessage = cleanedMessage + codedMessage.ElementAt(i);
                     }
-                   // cleanedMessage = cleanedMessage + codedMessge.ElementAt(i);
+                   // cleanedMessage = cleanedMessage + codedMessage.ElementAt(i);
                 }
 
-                if (codedMessge.ElementAt(i) == '_')
+                if (codedMessage.ElementAt(i) == '_')
                 {
                     finish = true;
                 }
@@ -145,7 +168,7 @@ namespace seaBass
                 if (start == true && finish==false)
                 {
 
-                  tempIndex = tempIndex + codedMessge.ElementAt(i).ToString();
+                  tempIndex = tempIndex + codedMessage.ElementAt(i).ToString();
       
                    
                     
@@ -164,7 +187,7 @@ namespace seaBass
                 }
 
 
-                if (codedMessge.ElementAt(i) == '-')
+                if (codedMessage.ElementAt(i) == '-')
                 {
                     start = true;
                 }
@@ -179,34 +202,34 @@ namespace seaBass
 
    
 
-        public List<List<Int32>> letterDistributionMK2(String MessageToBeDistriubted)
+        public List<List<Int32>> letterDistributionMK2(String MessageToBeDistributed)
         {
-            MessageToBeDistriubted.ToLower();
+            MessageToBeDistributed.ToLower();
             List<Int32> Aindex = new List<Int32>();
             List<Int32> Bindex = new List<Int32>();
             List<Int32> Cindex = new List<Int32>();
             List<Int32> Dindex = new List<Int32>();
             List<Int32> Eindex = new List<Int32>();
 
-            for (int i = 0; i < MessageToBeDistriubted.Count(); i++)
+            for (int i = 0; i < MessageToBeDistributed.Count(); i++)
             {
-                if (MessageToBeDistriubted.ElementAt(i) == 'a')
+                if (MessageToBeDistributed.ElementAt(i) == 'a')
                 {
                     Aindex.Add(i);
                 }
-                if (MessageToBeDistriubted.ElementAt(i) == 'b')
+                if (MessageToBeDistributed.ElementAt(i) == 'b')
                 {
                     Bindex.Add(i);
                 }
-                if (MessageToBeDistriubted.ElementAt(i) == 'c')
+                if (MessageToBeDistributed.ElementAt(i) == 'c')
                 {
                     Cindex.Add(i);
                 }
-                if (MessageToBeDistriubted.ElementAt(i) == 'd')
+                if (MessageToBeDistributed.ElementAt(i) == 'd')
                 {
                     Dindex.Add(i);
                 }
-                if (MessageToBeDistriubted.ElementAt(i) == 'e')
+                if (MessageToBeDistributed.ElementAt(i) == 'e')
                 {
                     Eindex.Add(i);
                 }
