@@ -32,6 +32,8 @@ namespace seaBass
 
             List<Char> alphabetList = new List<char>();
             String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
+            List<List<Int32>> RepeatList = letterDistributionMK2(key);
+
             // For loop populates alphabetList from the alphabetList String
             for (int c = 0; c < alphabetString.Count(); c++)
             {
@@ -40,120 +42,59 @@ namespace seaBass
             }
 
 
-            /*
-            for (int i = 0; i < MessageToBeDistriubted.Count(); i++)
-            {
-
-
-                char temp = MessageToBeDistriubted.ElementAt(i);
-
-                for (int aa = 0; aa < alphabetList.Count(); aa++)
-                {
-                    if (temp == alphabetList.ElementAt(aa))
-                    {
-                        Distribution.ElementAt(aa).Add(i);
-                    }
-                }
-
-            */
-
-
-                bool encoded = false;
+           
+            bool other = false;
             for (int b = 0; b < message.Count(); b++)
             {
 
 
                 char temp = message.ElementAt(b);
-
+                
                 for (int bb = 0; bb < alphabetList.Count(); bb++)
                 {
                     if (temp == alphabetList.ElementAt(bb))
                     {
+                       
+                        //block for manging both lists might be inside wrong loop
+                        /* int keyListCount = keyList.ElementAt(bb).Count();
+                        int repeatListCount = RepeatList.ElementAt(bb).Count();
+                        //in case the key has to reuse indexes
+                        //  throwing error
+                        if (keyListCount<2 && repeatListCount > keyListCount)
+                        {
+                            for(int ii = 0; ii < repeatListCount; ii++)
+                            {
+                                keyList.Add(RepeatList.ElementAt(ii));
+                                //RepeatList.RemoveAt(ii);
+                            }
+                        }
+                        */
+
+
+
+
+
                         Random r = new Random();
                         int index = r.Next(1, keyList.ElementAt(bb).Count());
                         newMessage = newMessage + "-" + keyList.ElementAt(bb).ElementAt(index) + "_";
+                        //make a copy of the index
+                        RepeatList.ElementAt(bb).Add(keyList.ElementAt(bb).ElementAt(index));
+                        //remove the copy of the index
                         keyList.ElementAt(bb).RemoveAt(index);
-
-
+                        other = true;
                     }
-
-
+                    //we need an alternate code for things that can not be encoded
+                 
                 }
 
-
-                /*
-                if (message.ElementAt(b) == 'a' && encoded == false)
-                {
-
-                    //we need to take a random one from a list, then add it, then remove it
-                    Random r = new Random();
-                    int index = r.Next(1, keyList.ElementAt(0).Count());
-                    newMessage = newMessage + "-" + keyList.ElementAt(0).ElementAt(index) + "_";
-                    keyList.ElementAt(0).RemoveAt(index);
-                    encoded = true;
-                }
-
-                if (message.ElementAt(b) == 'b' && encoded == false)
-                {
-
-                    //we need to take a random one from a list, then add it, then remove it
-                    Random r = new Random();
-                    int index = r.Next(1, keyList.ElementAt(1).Count());
-                    newMessage = newMessage + "-" + keyList.ElementAt(1).ElementAt(index) + "_";
-                    keyList.ElementAt(1).RemoveAt(index);
-                    encoded = true;
-                }
-
-
-                if (message.ElementAt(b) == 'c' && encoded == false)
-                {
-
-                    //we need to take a random one from a list, then add it, then remove it
-                    //int index = keyList.ElementAt(2).Count() - 1;
-                    Random r = new Random();
-                    int index = r.Next(1, keyList.ElementAt(2).Count());
-                    newMessage = newMessage + "-" + keyList.ElementAt(2).ElementAt(index) + "_";
-                    keyList.ElementAt(2).RemoveAt(index);
-                    encoded = true;
-                }
-
-                if (message.ElementAt(b) == 'd' && encoded == false)
-                {
-
-                    Random r = new Random();
-                    int index = r.Next(1, keyList.ElementAt(3).Count());
-                    newMessage = newMessage + "-" + keyList.ElementAt(3).ElementAt(index) + "_";
-                    keyList.ElementAt(3).RemoveAt(index);
-                    encoded = true;
-                    //tacos for jlofdd rrr
-                }
-
-                if (message.ElementAt(b) == 'e' && encoded == false)
-                {
-
-                    Random r = new Random();
-                    int index = r.Next(1, keyList.ElementAt(4).Count());
-                    newMessage = newMessage + "-" + keyList.ElementAt(4).ElementAt(index) + "_";
-                    keyList.ElementAt(4).RemoveAt(index);
-                    encoded = true;
-                }
-
-
-
-
-
-
-
-                if (encoded == false)
-                {
-                    newMessage = newMessage + message.ElementAt(b);
-                    encoded = true;
-                }
-
-
-                encoded = false;
-
-            */
+                   if( other == false)
+                    {
+                        newMessage = newMessage + "-!_";
+                        other = true;
+                       
+                    }
+                    other = false;
+                    
 
             }
 
@@ -207,8 +148,20 @@ namespace seaBass
                     indexkeys = indexkeys + tempIndex + " ";
                     start = false;
                     finish = false;
-                    int index = int.Parse(tempIndex);
-                    char letter = key.ElementAt(index);
+
+                    int index;
+                    char letter=' ';
+                    bool decoded = false;
+                    if(int.TryParse(tempIndex,out index))
+                    {
+                        letter = key.ElementAt(index);
+                        decoded = true;
+                    }
+                    if (decoded == false)
+                    {
+                        letter = tempIndex.ToCharArray().ElementAt(0);
+                    }
+
                     lettersFromKey = lettersFromKey + letter;
                     cleanedMessage = cleanedMessage + letter;
                     tempIndex = "";

@@ -32,7 +32,7 @@ namespace seaBass
             List<List<Int32>> keyDistribution = conceal.letterDistributionMK2(message);
            // String diagnose="there are " + keyDistribution.ElementAt(0).Count() + " a's in the key";
             string newMessage= conceal.conceal(message, key);
-            string unscramble = conceal.deConCeal(newMessage, key);
+           // string unscramble = conceal.deConCeal(newMessage, key);
            int aCount= keyDistribution.ElementAt(0).Count();
            // string aCountString = "the count of a's in the message is " + aCount;
             txtBoxCodedOut.Text = newMessage;
