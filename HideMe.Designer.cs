@@ -121,6 +121,7 @@
             this.txtDecoded.Location = new System.Drawing.Point(35, 414);
             this.txtDecoded.Multiline = true;
             this.txtDecoded.Name = "txtDecoded";
+            this.txtDecoded.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDecoded.Size = new System.Drawing.Size(413, 80);
             this.txtDecoded.TabIndex = 10;
             // 
