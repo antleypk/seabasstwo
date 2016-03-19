@@ -67,17 +67,14 @@ namespace seaBass
                                 keyList.ElementAt(bb).Add(RepeatList.ElementAt(bb).ElementAt(kk));
                             }
                         }
-                        //there is a a problem where if the key does not contain an example of 
-                        //the letter being used, but it is in the alphabit list it throws an out of 
-                        //bounds
+            
                         if (keyList.ElementAt(bb).Count() == 0)
                         {
                             keyList.ElementAt(bb).Add('*');
-                            keyList.ElementAt(bb).Add('*');
-                            keyList.ElementAt(bb).Add('*');
+                           
                         }
                         Random r = new Random();
-                        int index = r.Next(1, keyList.ElementAt(bb).Count());
+                        int index = r.Next(0, keyList.ElementAt(bb).Count());
                         newMessage = newMessage + "-" + keyList.ElementAt(bb).ElementAt(index) + "_";
                         
                         //make a copy of the index
@@ -86,24 +83,28 @@ namespace seaBass
                         keyList.ElementAt(bb).RemoveAt(index);
                         other = true;
                     }
-                    //we need an alternate code for things that can not be encoded
+                   
                  
                 }
 
                    if( other == false)
                     {   //this replaces unparseable things with !
                         //from a cyrptology standpoint i think it is better to substitute in random 
-                         newMessage = newMessage + "-!_";
-                        //things from the key instead of making it obvious that an error orrured
-                    /*
+                       //  newMessage = newMessage + "-!_";
+                    //things from the key instead of making it obvious that an error orrured
+
                     Random seed = new Random();
-                    int letter = seed.Next(0, keyList.Count());
-                    int index = seed.Next(0, keyList.ElementAt(letter).Count());
-                    newMessage = newMessage + keyList.ElementAt(letter).ElementAt(index-1);
-                    */
-
-
-
+                    int maxLetters = 0; ;
+                    for(int i=0; i < keyList.Count(); i++)
+                    {
+                        if (keyList.ElementAt(i).Count()> maxLetters)
+                        {
+                            maxLetters = i;
+                        }
+                    }
+                    int index = seed.Next(0, keyList.ElementAt(maxLetters).Count());
+                    int letterCode= keyList.ElementAt(maxLetters).ElementAt(index);
+                    newMessage = newMessage + "-" + letterCode + "_";
 
 
 
