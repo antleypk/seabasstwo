@@ -56,27 +56,30 @@ namespace seaBass
                     {
                        
                         //block for manging both lists might be inside wrong loop
-                        /* int keyListCount = keyList.ElementAt(bb).Count();
+                        int keyListCount = keyList.ElementAt(bb).Count();
                         int repeatListCount = RepeatList.ElementAt(bb).Count();
                         //in case the key has to reuse indexes
                         //  throwing error
-                        if (keyListCount<2 && repeatListCount > keyListCount)
+                        if (keyListCount == 1)
                         {
-                            for(int ii = 0; ii < repeatListCount; ii++)
+                            for (int kk=0; kk < RepeatList.ElementAt(bb).Count();  kk++)
                             {
-                                keyList.Add(RepeatList.ElementAt(ii));
-                                //RepeatList.RemoveAt(ii);
+                                keyList.ElementAt(bb).Add(RepeatList.ElementAt(bb).ElementAt(kk));
                             }
                         }
-                        */
-
-
-
-
-
+                        //there is a a problem where if the key does not contain an example of 
+                        //the letter being used, but it is in the alphabit list it throws an out of 
+                        //bounds
+                        if (keyList.ElementAt(bb).Count() == 0)
+                        {
+                            keyList.ElementAt(bb).Add('*');
+                            keyList.ElementAt(bb).Add('*');
+                            keyList.ElementAt(bb).Add('*');
+                        }
                         Random r = new Random();
                         int index = r.Next(1, keyList.ElementAt(bb).Count());
                         newMessage = newMessage + "-" + keyList.ElementAt(bb).ElementAt(index) + "_";
+                        
                         //make a copy of the index
                         RepeatList.ElementAt(bb).Add(keyList.ElementAt(bb).ElementAt(index));
                         //remove the copy of the index
@@ -88,9 +91,24 @@ namespace seaBass
                 }
 
                    if( other == false)
-                    {
-                        newMessage = newMessage + "-!_";
-                        other = true;
+                    {   //this replaces unparseable things with !
+                        //from a cyrptology standpoint i think it is better to substitute in random 
+                         newMessage = newMessage + "-!_";
+                        //things from the key instead of making it obvious that an error orrured
+                    /*
+                    Random seed = new Random();
+                    int letter = seed.Next(0, keyList.Count());
+                    int index = seed.Next(0, keyList.ElementAt(letter).Count());
+                    newMessage = newMessage + keyList.ElementAt(letter).ElementAt(index-1);
+                    */
+
+
+
+
+
+
+
+                    other = true;
                        
                     }
                     other = false;
@@ -152,8 +170,20 @@ namespace seaBass
                     int index;
                     char letter=' ';
                     bool decoded = false;
+
+                    
+
                     if(int.TryParse(tempIndex,out index))
                     {
+                        if (index >= key.Count())
+                        {
+                            Random r = new Random();
+                            int tempNum = key.Count();
+                            index = r.Next(0,tempNum);
+                        }
+                            
+                       // int indexX = r.Next(0, keyList.ElementAt(bb).Count());
+
                         letter = key.ElementAt(index);
                         decoded = true;
                     }
@@ -235,6 +265,7 @@ namespace seaBass
             Distribution.Add(Dindex);//3
             Distribution.Add(Eindex);//4
             Distribution.Add(Findex); //0
+            Distribution.Add(Gindex);
             Distribution.Add(Hindex); //1
             Distribution.Add(Iindex);//2
             Distribution.Add(Jindex);//3
@@ -271,6 +302,7 @@ namespace seaBass
 
             List<Char> alphabetList = new List<char>();
             String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
+            int alaphbetstringLenght = alphabetString.Count();
             // For loop populates alphabetList from the alphabetList String
             for (int c = 0; c < alphabetString.Count(); c++)
             {
@@ -290,31 +322,12 @@ namespace seaBass
                 {
                     if (temp == alphabetList.ElementAt(aa))
                     {
+                        //error when encoding and decoding number 4 works, 9 fails
                         Distribution.ElementAt(aa).Add(i);
                     }
                 }
 
-                /*if (MessageToBeDistriubted.ElementAt(i) == 'a')
-                {
-                    Aindex.Add(i);
-                }
-                if (MessageToBeDistriubted.ElementAt(i) == 'b')
-                {
-                    Bindex.Add(i);
-                }
-                if (MessageToBeDistriubted.ElementAt(i) == 'c')
-                {
-                    Cindex.Add(i);
-                }
-                if (MessageToBeDistriubted.ElementAt(i) == 'd')
-                {
-                    Dindex.Add(i);
-                }
-                if (MessageToBeDistriubted.ElementAt(i) == 'e')
-                {
-                    Eindex.Add(i);
-                }
-                */
+                
             }
 
            
