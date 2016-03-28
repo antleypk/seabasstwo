@@ -36,6 +36,8 @@
             this.btnResetHideMe = new System.Windows.Forms.Button();
             this.txtBoxMessageIn = new System.Windows.Forms.TextBox();
             this.txtBoxCodedOut = new System.Windows.Forms.TextBox();
+            this.txtDecoded = new System.Windows.Forms.TextBox();
+            this.lblDecoded = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelKeyInput
@@ -114,11 +116,31 @@
             this.txtBoxCodedOut.Size = new System.Drawing.Size(416, 96);
             this.txtBoxCodedOut.TabIndex = 9;
             // 
+            // txtDecoded
+            // 
+            this.txtDecoded.Location = new System.Drawing.Point(35, 414);
+            this.txtDecoded.Multiline = true;
+            this.txtDecoded.Name = "txtDecoded";
+            this.txtDecoded.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDecoded.Size = new System.Drawing.Size(413, 80);
+            this.txtDecoded.TabIndex = 10;
+            // 
+            // lblDecoded
+            // 
+            this.lblDecoded.AutoSize = true;
+            this.lblDecoded.Location = new System.Drawing.Point(39, 391);
+            this.lblDecoded.Name = "lblDecoded";
+            this.lblDecoded.Size = new System.Drawing.Size(65, 17);
+            this.lblDecoded.TabIndex = 11;
+            this.lblDecoded.Text = "Decoded";
+            // 
             // HideMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 393);
+            this.ClientSize = new System.Drawing.Size(460, 517);
+            this.Controls.Add(this.lblDecoded);
+            this.Controls.Add(this.txtDecoded);
             this.Controls.Add(this.txtBoxCodedOut);
             this.Controls.Add(this.txtBoxMessageIn);
             this.Controls.Add(this.btnResetHideMe);
@@ -145,5 +167,7 @@
         private System.Windows.Forms.Button btnResetHideMe;
         private System.Windows.Forms.TextBox txtBoxMessageIn;
         private System.Windows.Forms.TextBox txtBoxCodedOut;
+        private System.Windows.Forms.TextBox txtDecoded;
+        private System.Windows.Forms.Label lblDecoded;
     }
 }
