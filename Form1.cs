@@ -54,7 +54,9 @@ namespace seaBass
             }
             if (radioKeyGen.Checked == true)
             {
-                
+                operations.keyGen();
+                this.Hide();
+
             }
            
 

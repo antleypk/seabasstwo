@@ -20,3 +20,4 @@ C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.StartUpForm.resourc
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.HideMe.resources
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.Properties.Resources.resources
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.csproj.GenerateResource.Cache
+C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.KeyGenFrm.resources

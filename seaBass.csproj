@@ -83,6 +83,9 @@
     <EmbeddedResource Include="HideMe.resx">
       <DependentUpon>HideMe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KeyGenFrm.resx">
+      <DependentUpon>KeyGenFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
