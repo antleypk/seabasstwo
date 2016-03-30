@@ -301,6 +301,7 @@ namespace seaBass
             Distribution.Add(Nineindex);//4
 
 
+
             List<Char> alphabetList = new List<char>();
             String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
             int alaphbetstringLenght = alphabetString.Count();
