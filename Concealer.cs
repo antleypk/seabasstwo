@@ -121,8 +121,32 @@ namespace seaBass
         }
 
 
+        public string keyGenWstar(string starter, long length)
+        {
+            string key="Hello World";
+           
 
+            for (int i=0; i < length; i++)
+            {
+                Random seed = new Random();
+                int stringIndex = key.Count();
+                int index = seed.Next(0, stringIndex);
+                key = key + " " + key.ElementAt(index);
+            }
 
+            return key;
+        }
+        public string keyGen(long length)
+        {
+            string key = "Hello World";
+
+            for (int i = 0; i < 50; i++)
+            {
+                key = key + " " + i;
+            }
+
+            return key;
+        }
 
 
         public string deConCeal(string codedMessge, string key)

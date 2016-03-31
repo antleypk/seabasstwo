@@ -24,7 +24,12 @@ namespace seaBass
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
-
+            string passPhrase = lblStringIn.Text;
+            long length;
+            string key = "";
+            bool parse;
+            string lengthString = lblKeyLengthInput.Text;   
+            parse=Int64.TryParse(lengthString, out length);
             //convert and parse the input into numerical data
             //make loop that randomly generates a string of letters
             //stack overflow, parsing a string, into an , int x is the length
@@ -34,10 +39,21 @@ namespace seaBass
             // for( int i=0, i<x; i++ ){
             //             
             //            Random r = new Random();  look this up on google
-               // Key = Key + alpha.elementat(i);
+            // Key = Key + alpha.elementat(i);
             // }
+            Concealer keyGen = new Concealer();
+            if (rdbtnNoString.Checked == true && parse==true)
+            {
+             //   long length = 50;
+            //   key= keyGenWstar(length);
+            }
+            if (rdbtnString.Checked == true && parse == true)
+            {
+                //   long length = 50;
+                key = keyGen.keyGenWstar(passPhrase,length);
+            }
 
-            txtKeyOutput.Text = "Hello world!";
+            txtKeyOutput.Text = key;
             //txtKeyOutput.Text = key;
         }
 
