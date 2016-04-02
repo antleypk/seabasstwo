@@ -30,30 +30,12 @@ namespace seaBass
             bool parse;
             string lengthString = lblKeyLengthInput.Text;   
             parse=Int64.TryParse(lengthString, out length);
-            //convert and parse the input into numerical data
-            //make loop that randomly generates a string of letters
-            //stack overflow, parsing a string, into an , int x is the length
-            // of the input string 
-            //string alpha="abcdefghijklmnopqrstuvwxyz .@0123456789";
-            // string key
-            // for( int i=0, i<x; i++ ){
-            //             
-            //            Random r = new Random();  look this up on google
-            // Key = Key + alpha.elementat(i);
-            // }
-            Concealer keyGen = new Concealer();
-            if (rdbtnNoString.Checked == true && parse==true)
-            {
-             //   long length = 50;
-            //   key= keyGenWstar(length);
-            }
-            if (rdbtnString.Checked == true && parse == true)
-            {
-                //   long length = 50;
-                key = keyGen.keyGenWstar(passPhrase,length);
-            }
 
-            txtKeyOutput.Text = key;
+
+
+            Concealer keyGen = new Concealer();
+            key = keyGen.keyGen(length);
+            txtKeyOutput.Text = "hello world "+key.Count()+"!";
             //txtKeyOutput.Text = key;
         }
 

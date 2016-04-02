@@ -136,18 +136,51 @@ namespace seaBass
 
             return key;
         }
-        public string keyGen(long length)
+
+             public string keyGen(long length)
         {
-            string key = "Hello World";
-
-            for (int i = 0; i < 50; i++)
+            List<string> Characters = new List<string>() { "0", "1",
+"2", "3", "4", "5", "6", "7", "8", "9", "0", "q", "w", "e", "r", "t",
+"y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l",
+"z", "x", "c", "v", "b", "n", "m", "!", " ", "@" };
+            List<double> means = new List<double>() { 1, 2, 1, 1, 2,
+1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1,
+1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            string key = "";
+            while (key.Distinct().Count() < 39)
             {
-                key = key + " " + i;
+                Random rend = new Random();
+                for (int n = 0; n < 39; n++)
+                {
+                    double rendomnumber = rend.Next(0, 100000) / 100000;
+                    for (int m = 0; m < 6; m++)
+                    {
+                        double lambda = means[n];
+                        double poisson1 = Math.Pow(2.718, lambda) *
+                        Math.Pow(lambda, m) / Factorial(m);
+                        double poisson2 = Math.Pow(2.718, lambda) *
+                        Math.Pow(lambda, m + 1) / Factorial(m + 1);
+                        if ((poisson1 < rendomnumber) & (rendomnumber <
+poisson2))
+                        {
+                            for (int p = 0; p < m; p++)
+                            {
+                                key += Characters[n];
+                            }
+                        }
+                    }
+                }
             }
-
             return key;
         }
 
+        int Factorial(int i)
+        {
+            if (i <= 1)
+                return 1;
+            return i * Factorial(i - 1);
+        }
+      
 
         public string deConCeal(string codedMessge, string key)
         {
