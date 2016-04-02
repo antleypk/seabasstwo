@@ -1,14 +1,3 @@
-C:\Users\Daily\Desktop\seaBass\seaBass\bin\Debug\seaBass.exe.config
-C:\Users\Daily\Desktop\seaBass\seaBass\bin\Debug\seaBass.exe
-C:\Users\Daily\Desktop\seaBass\seaBass\bin\Debug\seaBass.pdb
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.csprojResolveAssemblyReference.cache
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.StartUpForm.resources
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.Properties.Resources.resources
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.csproj.GenerateResource.Cache
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.exe
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.pdb
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.HideMe.resources
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.DecyptFrm.resources
 C:\Users\austi_000\Source\Repos\seabasstwo\bin\Debug\seaBass.exe.config
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.exe
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.pdb
@@ -21,4 +10,3 @@ C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.HideMe.resources
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.Properties.Resources.resources
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.csproj.GenerateResource.Cache
 C:\Users\austi_000\Source\Repos\seabasstwo\obj\Debug\seaBass.KeyGenFrm.resources
-C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.KeyGenFrm.resources
