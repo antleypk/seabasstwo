@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 
 namespace seaBass
@@ -42,19 +43,19 @@ namespace seaBass
             }
 
 
-           
+
             bool other = false;
             for (int b = 0; b < message.Count(); b++)
             {
 
 
                 char temp = message.ElementAt(b);
-                
+
                 for (int bb = 0; bb < alphabetList.Count(); bb++)
                 {
                     if (temp == alphabetList.ElementAt(bb))
                     {
-                       
+
                         //block for manging both lists might be inside wrong loop
                         int keyListCount = keyList.ElementAt(bb).Count();
                         int repeatListCount = RepeatList.ElementAt(bb).Count();
@@ -62,58 +63,58 @@ namespace seaBass
                         //  throwing error
                         if (keyListCount == 1)
                         {
-                            for (int kk=0; kk < RepeatList.ElementAt(bb).Count();  kk++)
+                            for (int kk = 0; kk < RepeatList.ElementAt(bb).Count(); kk++)
                             {
                                 keyList.ElementAt(bb).Add(RepeatList.ElementAt(bb).ElementAt(kk));
                             }
                         }
-            
+
                         if (keyList.ElementAt(bb).Count() == 0)
                         {
                             keyList.ElementAt(bb).Add('*');
-                           
+
                         }
                         Random r = new Random();
                         int index = r.Next(0, keyList.ElementAt(bb).Count());
                         newMessage = newMessage + "-" + keyList.ElementAt(bb).ElementAt(index) + "_";
-                        
+
                         //make a copy of the index
                         RepeatList.ElementAt(bb).Add(keyList.ElementAt(bb).ElementAt(index));
                         //remove the copy of the index
                         keyList.ElementAt(bb).RemoveAt(index);
                         other = true;
                     }
-                   
-                 
+
+
                 }
 
-                   if( other == false)
-                    {   //this replaces unparseable things with !
-                        //from a cyrptology standpoint i think it is better to substitute in random 
-                       //  newMessage = newMessage + "-!_";
+                if (other == false)
+                {   //this replaces unparseable things with !
+                    //from a cyrptology standpoint i think it is better to substitute in random 
+                    //  newMessage = newMessage + "-!_";
                     //things from the key instead of making it obvious that an error orrured
 
                     Random seed = new Random();
                     int maxLetters = 0; ;
-                    for(int i=0; i < keyList.Count(); i++)
+                    for (int i = 0; i < keyList.Count(); i++)
                     {
-                        if (keyList.ElementAt(i).Count()> maxLetters)
+                        if (keyList.ElementAt(i).Count() > maxLetters)
                         {
                             maxLetters = i;
                         }
                     }
                     int index = seed.Next(0, keyList.ElementAt(maxLetters).Count());
-                    int letterCode= keyList.ElementAt(maxLetters).ElementAt(index);
+                    int letterCode = keyList.ElementAt(maxLetters).ElementAt(index);
                     newMessage = newMessage + "-" + letterCode + "_";
 
 
 
 
                     other = true;
-                       
-                    }
-                    other = false;
-                    
+
+                }
+                other = false;
+
 
             }
 
@@ -123,10 +124,10 @@ namespace seaBass
 
         public string keyGenWstar(string starter, long length)
         {
-            string key="Hello World";
-           
+            string key = "Hello World";
 
-            for (int i=0; i < length; i++)
+
+            for (int i = 0; i < length; i++)
             {
                 Random seed = new Random();
                 int stringIndex = key.Count();
@@ -137,43 +138,47 @@ namespace seaBass
             return key;
         }
 
-             public string keyGen(long length)
+        static string shuffle(string input)
         {
-            List<string> Characters = new List<string>() { "0", "1",
-"2", "3", "4", "5", "6", "7", "8", "9", "0", "q", "w", "e", "r", "t",
-"y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l",
-"z", "x", "c", "v", "b", "n", "m", "!", " ", "@" };
-            List<double> means = new List<double>() { 1, 2, 1, 1, 2,
-1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1,
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            var q = from c in input.ToCharArray()
+                    orderby Guid.NewGuid()
+                    select c;
+            string s = string.Empty;
+            foreach (var r in q)
+                s += r;
+            return s;
+        }
+        public string keyGen(long length)
+        {
+            List<string> Characters = new List<string>() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","@", ".", ",", "?", " "};
+            List<double> means = new List<double>() {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,100};
             string key = "";
-            while (key.Distinct().Count() < 39)
+            Random rend = new Random();
+            while (key.Count() < 20000)
             {
-                Random rend = new Random();
-                for (int n = 0; n < 39; n++)
+                for (int i = 0; i < 41; i++)
                 {
-                    double rendomnumber = rend.Next(0, 100000) / 100000;
-                    for (int m = 0; m < 6; m++)
+                    double CDF = 0;
+                    double rendomnumber = rend.Next(0, 10000);
+                    for (int m = 0; m < 100; m++)
                     {
-                        double lambda = means[n];
-                        double poisson1 = Math.Pow(2.718, lambda) *
-                        Math.Pow(lambda, m) / Factorial(m);
-                        double poisson2 = Math.Pow(2.718, lambda) *
-                        Math.Pow(lambda, m + 1) / Factorial(m + 1);
-                        if ((poisson1 < rendomnumber) & (rendomnumber <
-poisson2))
+                        double lambda = means[i];
+                        double poisson = Math.Pow(2.718, -lambda) * Math.Pow(lambda, m) / Factorial(m);
+                        if ((CDF < rendomnumber / 10000) & (rendomnumber / 10000 < (CDF + poisson)))
                         {
-                            for (int p = 0; p < m; p++)
+                            for (int n = 0; n < m; n++)
                             {
-                                key += Characters[n];
+                                key += Characters[i];
                             }
                         }
+                        CDF = CDF + poisson;
+                        double weirddouble = Math.Round(CDF*10, 0);
                     }
                 }
             }
-            return key;
+                return shuffle(key);
+            
         }
-
         int Factorial(int i)
         {
             if (i <= 1)

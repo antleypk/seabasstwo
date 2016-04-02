@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,8 @@ namespace seaBass
 
             Concealer keyGen = new Concealer();
             key = keyGen.keyGen(length);
-            txtKeyOutput.Text = "hello world "+key.Count()+"!";
-            //txtKeyOutput.Text = key;
+            //txtKeyOutput.Text = "hello world "+key.Count()+"!";
+            txtKeyOutput.Text = key;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -71,7 +72,14 @@ namespace seaBass
 
         private void KeyGenFrm_Load(object sender, EventArgs e)
         {
+            rdbtnNoString.Checked = true;
+        }
 
+        private void btnSelectNCopy_Click(object sender, EventArgs e)
+        {
+            txtKeyOutput.SelectAll();
+            txtKeyOutput.Copy();
+            Process.Start("notepad.exe", "text.txt");
         }
     }
 }
