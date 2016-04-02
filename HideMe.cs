@@ -60,5 +60,15 @@ namespace seaBass
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("input a key and a message to recieve a coded message");
+        }
     }
 }

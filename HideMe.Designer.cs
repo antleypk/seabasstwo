@@ -38,6 +38,7 @@
             this.txtBoxCodedOut = new System.Windows.Forms.TextBox();
             this.txtDecoded = new System.Windows.Forms.TextBox();
             this.lblDecoded = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelKeyInput
@@ -80,7 +81,7 @@
             // 
             // btnProccess
             // 
-            this.btnProccess.Location = new System.Drawing.Point(66, 234);
+            this.btnProccess.Location = new System.Drawing.Point(35, 234);
             this.btnProccess.Name = "btnProccess";
             this.btnProccess.Size = new System.Drawing.Size(154, 31);
             this.btnProccess.TabIndex = 5;
@@ -90,7 +91,7 @@
             // 
             // btnResetHideMe
             // 
-            this.btnResetHideMe.Location = new System.Drawing.Point(260, 234);
+            this.btnResetHideMe.Location = new System.Drawing.Point(312, 234);
             this.btnResetHideMe.Name = "btnResetHideMe";
             this.btnResetHideMe.Size = new System.Drawing.Size(136, 31);
             this.btnResetHideMe.TabIndex = 6;
@@ -134,11 +135,22 @@
             this.lblDecoded.TabIndex = 11;
             this.lblDecoded.Text = "Decoded";
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(208, 241);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(75, 23);
+            this.btnHelp.TabIndex = 12;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // HideMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 517);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lblDecoded);
             this.Controls.Add(this.txtDecoded);
             this.Controls.Add(this.txtBoxCodedOut);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.TextBox txtBoxCodedOut;
         private System.Windows.Forms.TextBox txtDecoded;
         private System.Windows.Forms.Label lblDecoded;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
