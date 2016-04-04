@@ -26,20 +26,32 @@ namespace seaBass
         private void btnProcess_Click(object sender, EventArgs e)
         {
             string passPhrase = lblStringIn.Text;
-            long length;
-            string key = "";
+            Int32 length;
+            
             bool parse;
-            string lengthString = lblKeyLengthInput.Text;   
-            parse=Int64.TryParse(lengthString, out length);
+            string lengthString = txtinputlength.Text; 
+            parse=Int32.TryParse(lengthString, out length);
 
+            if (length <= 100000)
+            {
+                genKey(length);
+            }
+            if (length > 100000)
+            {
+                txtinputlength.Text = "For preformance reasons must be less than 100,000";
+            }
 
-
+            
+        }
+        private void genKey(int length)
+        {
+            string key = "";
             Concealer keyGen = new Concealer();
-            key = keyGen.keyGen(length);
+            String input = txtStringIn.Text;
+            key = keyGen.keyGen(length,input);
             //txtKeyOutput.Text = "hello world "+key.Count()+"!";
             txtKeyOutput.Text = key;
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 

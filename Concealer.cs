@@ -91,20 +91,12 @@ namespace seaBass
                 if (other == false)
                 {   //this replaces unparseable things with !
                     //from a cyrptology standpoint i think it is better to substitute in random 
-                    //  newMessage = newMessage + "-!_";
-                    //things from the key instead of making it obvious that an error orrured
+                    //  newMessage = newMessage + "-BREAK_";
 
+                    int index = keyList.Count()-1;
                     Random seed = new Random();
-                    int maxLetters = 0; ;
-                    for (int i = 0; i < keyList.Count(); i++)
-                    {
-                        if (keyList.ElementAt(i).Count() > maxLetters)
-                        {
-                            maxLetters = i;
-                        }
-                    }
-                    int index = seed.Next(0, keyList.ElementAt(maxLetters).Count());
-                    int letterCode = keyList.ElementAt(maxLetters).ElementAt(index);
+                    int exInt = seed.Next(0, keyList.ElementAt(index).Count()-1);
+                    int letterCode = keyList.ElementAt(index).ElementAt(exInt);
                     newMessage = newMessage + "-" + letterCode + "_";
 
 
@@ -148,19 +140,41 @@ namespace seaBass
                 s += r;
             return s;
         }
-        public string keyGen(long length)
+        public string keyGen(int length, string StartString)
+
         {
-            List<string> Characters = new List<string>() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","@", ".", ",", "?", " "};
-            List<double> means = new List<double>() {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,100};
-            string key = "";
-            Random rend = new Random();
-            while (key.Count() < 20000)
+            if (StartString.Count() < 5)
             {
-                for (int i = 0; i < 41; i++)
+                StartString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
+            }
+
+            List<string> Characters = new List<string>() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","!", ".", ",", "?", "@", "#", "$", "%", "^", "&", "*", "(", ")", " "};
+            List<double> means = new List<double>() { .8, .2, .3, .4, 1.3, .2, .2, .6, 1.7, .1, .1, .4, .3, .7, .8, .2, .1, .6, .6, .9, .3, .1, .2, .1, .2, .1, .5, .5, .2, .2, .2, .2, .2, .2, .2, .2, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 1.5 };
+            Random rend = new Random();
+            string key = "";
+            while (key.Count() < length)
+            {
+                key = key + "1 ";
+ //               take a random from start string
+ //                pick that random or use your random
+                               int binary = rend.Next(0, 1);
+                int die = rend.Next(0, 10);
+                if (die == 10)
                 {
+                    int sstringIndex = rend.Next(0, StartString.Count());
+                    key += StartString.ElementAt(sstringIndex);
+                }
+
+
+                else
+                {
+
+                    for (int i = 0; i <(Characters.Count()-1); i++)
+                {
+       
                     double CDF = 0;
                     double rendomnumber = rend.Next(0, 10000);
-                    for (int m = 0; m < 100; m++)
+                    for (int m = 0; m < 10; m++)
                     {
                         double lambda = means[i];
                         double poisson = Math.Pow(2.718, -lambda) * Math.Pow(lambda, m) / Factorial(m);
@@ -171,13 +185,11 @@ namespace seaBass
                                 key += Characters[i];
                             }
                         }
-                        CDF = CDF + poisson;
-                        double weirddouble = Math.Round(CDF*10, 0);
                     }
-                }
+               }
+             }
             }
                 return shuffle(key);
-            
         }
         int Factorial(int i)
         {
@@ -320,7 +332,7 @@ namespace seaBass
             List<Int32> Sevenindex = new List<Int32>();
             List<Int32> Eightindex = new List<Int32>();
             List<Int32> Nineindex = new List<Int32>();
-
+            List<Int32> Exclamationpointindex = new List<Int32>();
             List<List<Int32>> Distribution = new List<List<Int32>>();
             Distribution.Add(Aindex); //0
             Distribution.Add(Bindex); //1
@@ -361,11 +373,11 @@ namespace seaBass
             Distribution.Add(Sevenindex);//2
             Distribution.Add(Eightindex);//3
             Distribution.Add(Nineindex);//4
-
+            Distribution.Add(Exclamationpointindex);
 
 
             List<Char> alphabetList = new List<char>();
-            String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
+            String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789!";
             int alaphbetstringLenght = alphabetString.Count();
             // For loop populates alphabetList from the alphabetList String
             for (int c = 0; c < alphabetString.Count(); c++)

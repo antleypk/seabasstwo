@@ -32,9 +32,9 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.lblOutput = new System.Windows.Forms.Label();
             this.lblStringIn = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtStringIn = new System.Windows.Forms.TextBox();
             this.lblKeyLengthInput = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtinputlength = new System.Windows.Forms.TextBox();
             this.rdbtnString = new System.Windows.Forms.RadioButton();
             this.rdbtnNoString = new System.Windows.Forms.RadioButton();
             this.gbSringRadio = new System.Windows.Forms.GroupBox();
@@ -45,7 +45,7 @@
             // txtKeyOutput
             // 
             this.txtKeyOutput.Location = new System.Drawing.Point(16, 210);
-            this.txtKeyOutput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKeyOutput.Margin = new System.Windows.Forms.Padding(4);
             this.txtKeyOutput.Multiline = true;
             this.txtKeyOutput.Name = "txtKeyOutput";
             this.txtKeyOutput.Size = new System.Drawing.Size(345, 95);
@@ -55,7 +55,7 @@
             // btnProcess
             // 
             this.btnProcess.Location = new System.Drawing.Point(239, 167);
-            this.btnProcess.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProcess.Margin = new System.Windows.Forms.Padding(4);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(124, 36);
             this.btnProcess.TabIndex = 1;
@@ -83,15 +83,15 @@
             this.lblStringIn.TabIndex = 3;
             this.lblStringIn.Text = "String In";
             // 
-            // textBox1
+            // txtStringIn
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 6);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 25);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.txtStringIn.Location = new System.Drawing.Point(87, 6);
+            this.txtStringIn.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStringIn.Multiline = true;
+            this.txtStringIn.Name = "txtStringIn";
+            this.txtStringIn.Size = new System.Drawing.Size(275, 25);
+            this.txtStringIn.TabIndex = 4;
+            this.txtStringIn.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // lblKeyLengthInput
             // 
@@ -103,20 +103,20 @@
             this.lblKeyLengthInput.TabIndex = 5;
             this.lblKeyLengthInput.Text = "Input Length of Key";
             // 
-            // textBox2
+            // txtinputlength
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 36);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(207, 22);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtinputlength.Location = new System.Drawing.Point(155, 36);
+            this.txtinputlength.Margin = new System.Windows.Forms.Padding(4);
+            this.txtinputlength.Name = "txtinputlength";
+            this.txtinputlength.Size = new System.Drawing.Size(207, 22);
+            this.txtinputlength.TabIndex = 6;
+            this.txtinputlength.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // rdbtnString
             // 
             this.rdbtnString.AutoSize = true;
             this.rdbtnString.Location = new System.Drawing.Point(8, 23);
-            this.rdbtnString.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbtnString.Margin = new System.Windows.Forms.Padding(4);
             this.rdbtnString.Name = "rdbtnString";
             this.rdbtnString.Size = new System.Drawing.Size(66, 21);
             this.rdbtnString.TabIndex = 7;
@@ -129,7 +129,7 @@
             // 
             this.rdbtnNoString.AutoSize = true;
             this.rdbtnNoString.Location = new System.Drawing.Point(8, 50);
-            this.rdbtnNoString.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbtnNoString.Margin = new System.Windows.Forms.Padding(4);
             this.rdbtnNoString.Name = "rdbtnNoString";
             this.rdbtnNoString.Size = new System.Drawing.Size(88, 21);
             this.rdbtnNoString.TabIndex = 8;
@@ -143,9 +143,9 @@
             this.gbSringRadio.Controls.Add(this.rdbtnString);
             this.gbSringRadio.Controls.Add(this.rdbtnNoString);
             this.gbSringRadio.Location = new System.Drawing.Point(31, 74);
-            this.gbSringRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbSringRadio.Margin = new System.Windows.Forms.Padding(4);
             this.gbSringRadio.Name = "gbSringRadio";
-            this.gbSringRadio.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbSringRadio.Padding = new System.Windows.Forms.Padding(4);
             this.gbSringRadio.Size = new System.Drawing.Size(115, 79);
             this.gbSringRadio.TabIndex = 9;
             this.gbSringRadio.TabStop = false;
@@ -168,14 +168,14 @@
             this.ClientSize = new System.Drawing.Size(379, 321);
             this.Controls.Add(this.btnSelectNCopy);
             this.Controls.Add(this.gbSringRadio);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtinputlength);
             this.Controls.Add(this.lblKeyLengthInput);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtStringIn);
             this.Controls.Add(this.lblStringIn);
             this.Controls.Add(this.lblOutput);
             this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.txtKeyOutput);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "KeyGenFrm";
             this.Text = "KeyGenFrm";
             this.Load += new System.EventHandler(this.KeyGenFrm_Load);
@@ -192,9 +192,9 @@
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.Label lblOutput;
         private System.Windows.Forms.Label lblStringIn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStringIn;
         private System.Windows.Forms.Label lblKeyLengthInput;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtinputlength;
         private System.Windows.Forms.RadioButton rdbtnString;
         private System.Windows.Forms.RadioButton rdbtnNoString;
         private System.Windows.Forms.GroupBox gbSringRadio;
