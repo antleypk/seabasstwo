@@ -103,5 +103,12 @@ namespace seaBass
             txtKeyOutput.Copy();
             Process.Start("notepad.exe", "key.txt");
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Operator operations = new Operator();
+            this.Hide();
+            operations.loop();
+        }
     }
 }

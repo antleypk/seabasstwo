@@ -188,6 +188,7 @@
             this.btnMenu.TabIndex = 13;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // KeyGenFrm
             // 
