@@ -40,14 +40,14 @@ namespace seaBass
 
             if (length <= 100000)
             {
-                genKey(length,ratio);
+                genKey(length, ratio);
             }
             if (length > 100000)
             {
                 txtinputlength.Text = "For preformance reasons must be less than 100,000";
             }
 
-            
+
         }
         private void genKey(int length, int ratio)
         {
@@ -102,6 +102,7 @@ namespace seaBass
             txtKeyOutput.SelectAll();
             txtKeyOutput.Copy();
             Process.Start("notepad.exe", "key.txt");
+            System.IO.File.WriteAllText("key.txt", txtKeyOutput.Text);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

@@ -77,6 +77,7 @@ namespace seaBass
             txtBoxCodedOut.SelectAll();
             txtBoxCodedOut.Copy();
             Process.Start("notepad.exe", "coded.txt");
+            System.IO.File.WriteAllText("coded.txt", txtBoxCodedOut.Text);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

@@ -67,6 +67,7 @@ namespace seaBass
             txtCodeOut.SelectAll();
             txtCodeOut.Copy();
             Process.Start("notepad.exe", "text.txt");
+            System.IO.File.WriteAllText("text.txt", txtCodeOut.Text);
         }
     }
 }

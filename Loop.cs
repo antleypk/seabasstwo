@@ -36,7 +36,7 @@ namespace seaBass
             }
             if (radioDycrpt.Checked == true)
             {
-                operations.keyGen();
+                operations.decrypt();
                 this.Hide();
 
             }
