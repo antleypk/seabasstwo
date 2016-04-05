@@ -32,9 +32,15 @@ namespace seaBass
             string lengthString = txtinputlength.Text; 
             parse=Int32.TryParse(lengthString, out length);
 
+            bool parse2;
+            Int32 ratio;
+            string ratioString = txtinputlength.Text;
+            parse = Int32.TryParse(ratioString, out ratio);
+
+
             if (length <= 100000)
             {
-                genKey(length);
+                genKey(length,ratio);
             }
             if (length > 100000)
             {
@@ -43,12 +49,16 @@ namespace seaBass
 
             
         }
-        private void genKey(int length)
+        private void genKey(int length, int ratio)
         {
             string key = "";
             Concealer keyGen = new Concealer();
             String input = txtStringIn.Text;
-            key = keyGen.keyGen(length,input);
+
+
+
+
+            key = keyGen.keyGen(length,input,ratio);
             //txtKeyOutput.Text = "hello world "+key.Count()+"!";
             txtKeyOutput.Text = key;
         }
@@ -91,7 +101,7 @@ namespace seaBass
         {
             txtKeyOutput.SelectAll();
             txtKeyOutput.Copy();
-            Process.Start("notepad.exe", "text.txt");
+            Process.Start("notepad.exe", "key.txt");
         }
     }
 }

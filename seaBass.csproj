@@ -71,6 +71,12 @@
     <Compile Include="KeyGenFrm.Designer.cs">
       <DependentUpon>KeyGenFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Loop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loop.Designer.cs">
+      <DependentUpon>Loop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KeyGenFrm.resx">
       <DependentUpon>KeyGenFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loop.resx">
+      <DependentUpon>Loop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

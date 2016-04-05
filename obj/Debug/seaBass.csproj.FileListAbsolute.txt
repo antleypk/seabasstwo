@@ -22,3 +22,4 @@ C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.Properties.Resources.re
 C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.csproj.GenerateResource.Cache
 C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.exe
 C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.pdb
+C:\Users\Daily\Desktop\seaBass\seaBass\obj\Debug\seaBass.Loop.resources

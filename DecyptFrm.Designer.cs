@@ -37,6 +37,7 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnMainMenu = new System.Windows.Forms.Button();
+            this.btnCopyDecode = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDecryptKey
@@ -95,7 +96,7 @@
             // 
             // btnProcess
             // 
-            this.btnProcess.Location = new System.Drawing.Point(70, 288);
+            this.btnProcess.Location = new System.Drawing.Point(12, 288);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(75, 23);
             this.btnProcess.TabIndex = 7;
@@ -105,7 +106,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(175, 288);
+            this.btnReset.Location = new System.Drawing.Point(93, 288);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 8;
@@ -115,7 +116,7 @@
             // 
             // btnMainMenu
             // 
-            this.btnMainMenu.Location = new System.Drawing.Point(273, 288);
+            this.btnMainMenu.Location = new System.Drawing.Point(174, 288);
             this.btnMainMenu.Name = "btnMainMenu";
             this.btnMainMenu.Size = new System.Drawing.Size(92, 23);
             this.btnMainMenu.TabIndex = 9;
@@ -123,11 +124,22 @@
             this.btnMainMenu.UseVisualStyleBackColor = true;
             this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
+            // btnCopyDecode
+            // 
+            this.btnCopyDecode.Location = new System.Drawing.Point(272, 288);
+            this.btnCopyDecode.Name = "btnCopyDecode";
+            this.btnCopyDecode.Size = new System.Drawing.Size(128, 23);
+            this.btnCopyDecode.TabIndex = 10;
+            this.btnCopyDecode.Text = "Copy Decoded";
+            this.btnCopyDecode.UseVisualStyleBackColor = true;
+            this.btnCopyDecode.Click += new System.EventHandler(this.btnCopyDecode_Click);
+            // 
             // DecyptFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 323);
+            this.Controls.Add(this.btnCopyDecode);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnProcess);
@@ -156,5 +168,6 @@
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnMainMenu;
+        private System.Windows.Forms.Button btnCopyDecode;
     }
 }

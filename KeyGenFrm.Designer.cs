@@ -39,6 +39,9 @@
             this.rdbtnNoString = new System.Windows.Forms.RadioButton();
             this.gbSringRadio = new System.Windows.Forms.GroupBox();
             this.btnSelectNCopy = new System.Windows.Forms.Button();
+            this.lblRationIn = new System.Windows.Forms.Label();
+            this.txtRatioIN = new System.Windows.Forms.TextBox();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.gbSringRadio.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,11 +164,39 @@
             this.btnSelectNCopy.UseVisualStyleBackColor = true;
             this.btnSelectNCopy.Click += new System.EventHandler(this.btnSelectNCopy_Click);
             // 
+            // lblRationIn
+            // 
+            this.lblRationIn.AutoSize = true;
+            this.lblRationIn.Location = new System.Drawing.Point(155, 74);
+            this.lblRationIn.Name = "lblRationIn";
+            this.lblRationIn.Size = new System.Drawing.Size(97, 17);
+            this.lblRationIn.TabIndex = 11;
+            this.lblRationIn.Text = "Ratio 1-100int";
+            // 
+            // txtRatioIN
+            // 
+            this.txtRatioIN.Location = new System.Drawing.Point(270, 74);
+            this.txtRatioIN.Name = "txtRatioIN";
+            this.txtRatioIN.Size = new System.Drawing.Size(91, 22);
+            this.txtRatioIN.TabIndex = 12;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(74, 167);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMenu.TabIndex = 13;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            // 
             // KeyGenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 321);
+            this.Controls.Add(this.btnMenu);
+            this.Controls.Add(this.txtRatioIN);
+            this.Controls.Add(this.lblRationIn);
             this.Controls.Add(this.btnSelectNCopy);
             this.Controls.Add(this.gbSringRadio);
             this.Controls.Add(this.txtinputlength);
@@ -199,5 +230,8 @@
         private System.Windows.Forms.RadioButton rdbtnNoString;
         private System.Windows.Forms.GroupBox gbSringRadio;
         private System.Windows.Forms.Button btnSelectNCopy;
+        private System.Windows.Forms.Label lblRationIn;
+        private System.Windows.Forms.TextBox txtRatioIN;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

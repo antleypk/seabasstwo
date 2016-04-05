@@ -39,6 +39,8 @@
             this.txtDecoded = new System.Windows.Forms.TextBox();
             this.lblDecoded = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnCopyCode = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelKeyInput
@@ -145,11 +147,33 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // btnCopyCode
+            // 
+            this.btnCopyCode.Location = new System.Drawing.Point(191, 385);
+            this.btnCopyCode.Name = "btnCopyCode";
+            this.btnCopyCode.Size = new System.Drawing.Size(92, 23);
+            this.btnCopyCode.TabIndex = 13;
+            this.btnCopyCode.Text = "Copy Code";
+            this.btnCopyCode.UseVisualStyleBackColor = true;
+            this.btnCopyCode.Click += new System.EventHandler(this.btnCopyCode_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(333, 385);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMenu.TabIndex = 14;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // HideMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 517);
+            this.Controls.Add(this.btnMenu);
+            this.Controls.Add(this.btnCopyCode);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lblDecoded);
             this.Controls.Add(this.txtDecoded);
@@ -182,5 +206,7 @@
         private System.Windows.Forms.TextBox txtDecoded;
         private System.Windows.Forms.Label lblDecoded;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnCopyCode;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

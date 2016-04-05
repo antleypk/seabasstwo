@@ -30,6 +30,12 @@ namespace seaBass
             KeyGenFrm keyGen = new KeyGenFrm();
             keyGen.Show();
         }
+
+        public void loop()
+        {
+            Loop loop = new Loop();
+            loop.Show();
+        }
         
     }
 }

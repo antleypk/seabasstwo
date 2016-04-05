@@ -140,7 +140,7 @@ namespace seaBass
                 s += r;
             return s;
         }
-        public string keyGen(int length, string StartString)
+        public string keyGen(int length, string StartString, int ratio)
 
         {
             if (StartString.Count() < 5)
@@ -158,11 +158,18 @@ namespace seaBass
  //               take a random from start string
  //                pick that random or use your random
                                int binary = rend.Next(0, 1);
-                int die = rend.Next(0, 10);
+
+
+                 int die = rend.Next(0, 10);
                 if (die == 10)
+                //int count = 0;
+                //if (count==ratio )
                 {
                     int sstringIndex = rend.Next(0, StartString.Count());
-                    key += StartString.ElementAt(sstringIndex);
+                     key += StartString.ElementAt(sstringIndex);
+                    
+                  //  key += StartString.ElementAt(2);
+                //    count = 0;
                 }
 
 
@@ -183,6 +190,7 @@ namespace seaBass
                             for (int n = 0; n < m; n++)
                             {
                                 key += Characters[i];
+                             //       count = +1;
                             }
                         }
                     }

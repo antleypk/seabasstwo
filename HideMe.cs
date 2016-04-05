@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,20 @@ namespace seaBass
         private void btnHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("input a key and a message to recieve a coded message");
+        }
+
+        private void btnCopyCode_Click(object sender, EventArgs e)
+        {
+            txtBoxCodedOut.SelectAll();
+            txtBoxCodedOut.Copy();
+            Process.Start("notepad.exe", "coded.txt");
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Operator operations = new Operator();
+            this.Hide();
+            operations.loop();
         }
     }
 }
