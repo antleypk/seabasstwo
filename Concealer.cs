@@ -34,7 +34,7 @@ namespace seaBass
             List<Char> alphabetList = new List<char>();
             String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
             List<List<Int32>> RepeatList = letterDistributionMK2(key);
-
+            Random seed = new Random();
             // For loop populates alphabetList from the alphabetList String
             for (int c = 0; c < alphabetString.Count(); c++)
             {
@@ -94,8 +94,8 @@ namespace seaBass
                     //  newMessage = newMessage + "-BREAK_";
 
                     int index = keyList.Count()-1;
-                    Random seed = new Random();
-                    int exInt = seed.Next(0, keyList.ElementAt(index).Count()-1);
+
+                    int exInt = seed.Next(0, keyList.ElementAt(index).Count() );
                     int letterCode = keyList.ElementAt(index).ElementAt(exInt);
                     newMessage = newMessage + "-" + letterCode + "_";
 
@@ -145,58 +145,65 @@ namespace seaBass
         {
             if (StartString.Count() < 5)
             {
-                StartString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
+                   StartString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
+             //   StartString = "************************************";
             }
 
             List<string> Characters = new List<string>() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","!", ".", ",", "?", "@", "#", "$", "%", "^", "&", "*", "(", ")", " "};
             List<double> means = new List<double>() { .8, .2, .3, .4, 1.3, .2, .2, .6, 1.7, .1, .1, .4, .3, .7, .8, .2, .1, .6, .6, .9, .3, .1, .2, .1, .2, .1, .5, .5, .2, .2, .2, .2, .2, .2, .2, .2, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 1.5 };
             Random rend = new Random();
             string key = "";
+            int count = 0;
             while (key.Count() < length)
             {
-                key = key + "1 ";
- //               take a random from start string
- //                pick that random or use your random
-                               int binary = rend.Next(0, 1);
 
 
-                 int die = rend.Next(0, 10);
-                if (die == 10)
-                //int count = 0;
-                //if (count==ratio )
+                if (count == ratio)
                 {
-                    int sstringIndex = rend.Next(0, StartString.Count());
-                     key += StartString.ElementAt(sstringIndex);
-                    
-                  //  key += StartString.ElementAt(2);
-                //    count = 0;
+                  
+
                 }
-
-
                 else
                 {
 
-                    for (int i = 0; i <(Characters.Count()-1); i++)
-                {
-       
-                    double CDF = 0;
-                    double rendomnumber = rend.Next(0, 10000);
-                    for (int m = 0; m < 10; m++)
+                    for (int i = 0; i < (Characters.Count() - 1); i++)
                     {
-                        double lambda = means[i];
-                        double poisson = Math.Pow(2.718, -lambda) * Math.Pow(lambda, m) / Factorial(m);
-                        if ((CDF < rendomnumber / 10000) & (rendomnumber / 10000 < (CDF + poisson)))
+
+                        double CDF = 0;
+                        double rendomnumber = rend.Next(0, 10000);
+                        for (int m = 0; m < 10; m++)
                         {
-                            for (int n = 0; n < m; n++)
+                            double lambda = means[i];
+                            double poisson = Math.Pow(2.718, -lambda) * Math.Pow(lambda, m) / Factorial(m);
+                            if ((CDF < rendomnumber / 10000) & (rendomnumber / 10000 < (CDF + poisson)))
                             {
-                                key += Characters[i];
-                             //       count = +1;
+                                for (int n = 0; n < m; n++)
+                                {
+                                   
+                                    if (count < ratio)
+                                    {
+                                       key += Characters[i];
+                                  //     key += "^";
+                                        count += 1;
+                                    }
+                                    
+                                }
+                                
+                            }
+                            if (count == ratio)
+                            {
+                                int sstringIndex = rend.Next(0, StartString.Count());
+                                char temp=StartString.ElementAt(sstringIndex);
+                                key += temp;
+                                count = 0;
                             }
                         }
                     }
-               }
-             }
+
+                }
             }
+         
+          //  return key;
                 return shuffle(key);
         }
         int Factorial(int i)
@@ -327,6 +334,7 @@ namespace seaBass
             List<Int32> Yindex = new List<Int32>();
             List<Int32> Zindex = new List<Int32>();
             List<Int32> Spaceindex = new List<Int32>();
+            List<Int32> Commaindex = new List<Int32>();
             List<Int32> Periodindex = new List<Int32>();
             List<Int32> Atindex = new List<Int32>();
 
@@ -382,10 +390,11 @@ namespace seaBass
             Distribution.Add(Eightindex);//3
             Distribution.Add(Nineindex);//4
             Distribution.Add(Exclamationpointindex);
+            Distribution.Add(Commaindex);
 
 
             List<Char> alphabetList = new List<char>();
-            String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789!";
+            String alphabetString = "abcdefghijklmnopqrstuvwxyz .@0123456789!,";
             int alaphbetstringLenght = alphabetString.Count();
             // For loop populates alphabetList from the alphabetList String
             for (int c = 0; c < alphabetString.Count(); c++)

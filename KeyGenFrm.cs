@@ -33,9 +33,9 @@ namespace seaBass
             parse=Int32.TryParse(lengthString, out length);
 
             bool parse2;
-            Int32 ratio;
-            string ratioString = txtinputlength.Text;
-            parse = Int32.TryParse(ratioString, out ratio);
+            int ratio;
+            string ratioString = txtRatioIN.Text;
+            parse2 = int.TryParse(ratioString, out ratio);
 
 
             if (length <= 100000)
@@ -94,7 +94,7 @@ namespace seaBass
 
         private void KeyGenFrm_Load(object sender, EventArgs e)
         {
-            rdbtnNoString.Checked = true;
+           
         }
 
         private void btnSelectNCopy_Click(object sender, EventArgs e)
@@ -110,6 +110,16 @@ namespace seaBass
             Operator operations = new Operator();
             this.Hide();
             operations.loop();
+        }
+
+        private void txtRatioIN_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKeyLengthInput_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
