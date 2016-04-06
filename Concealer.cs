@@ -150,7 +150,7 @@ namespace seaBass
             }
 
             List<string> Characters = new List<string>() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","!", ".", ",", "?", "@", "#", "$", "%", "^", "&", "*", "(", ")", " "};
-            List<double> means = new List<double>() { .8, .2, .3, .4, 1.3, .2, .2, .6, 1.7, .1, .1, .4, .3, .7, .8, .2, .1, .6, .6, .9, .3, .1, .2, .1, .2, .1, .5, .5, .2, .2, .2, .2, .2, .2, .2, .2, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 1.5 };
+            List<double> means = new List<double>() { .8, .2, .3, .4, 1.3, .2, .2, .6, 1.7, .1, .1, .4, .3, .7, .8, .2, .1, .6, .6, .9, .3, .1, .2, .1, .2, .1, .5, .5, .2, .2, .2, .2, .2, .2, .2, .2, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 8 };
             Random rend = new Random();
             string key = "";
             int count = 0;
@@ -166,7 +166,7 @@ namespace seaBass
                 else
                 {
 
-                    for (int i = 0; i < (Characters.Count() - 1); i++)
+                    for (int i = 0; i < (means.Count()); i++)
                     {
 
                         double CDF = 0;
@@ -194,7 +194,8 @@ namespace seaBass
                             {
                                 int sstringIndex = rend.Next(0, StartString.Count());
                                 char temp=StartString.ElementAt(sstringIndex);
-                                key += temp;
+                                //   key += temp;
+                                key += "*";
                                 count = 0;
                             }
                         }
@@ -204,7 +205,7 @@ namespace seaBass
             }
          
           //  return key;
-                return shuffle(key);
+               return shuffle(key);
         }
         int Factorial(int i)
         {

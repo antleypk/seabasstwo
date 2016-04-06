@@ -38,16 +38,16 @@ namespace seaBass
             parse2 = int.TryParse(ratioString, out ratio);
 
 
-            if (length <= 100000)
-            {
-                genKey(length, ratio);
-            }
-            if (length > 100000)
-            {
-                txtinputlength.Text = "For preformance reasons must be less than 100,000";
-            }
+            //if (length <= 100000)
+            //{
+            //    genKey(length, ratio);
+            //}
+            //if (length > 100000)
+            //{
+            //    txtinputlength.Text = "For preformance reasons must be less than 100,000";
+            //}
 
-
+            genKey(length, ratio);
         }
         private void genKey(int length, int ratio)
         {
