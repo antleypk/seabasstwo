@@ -42,8 +42,6 @@ namespace seaBass
                 alphabetList.Add(temp);
             }
 
-
-
             bool other = false;
             for (int b = 0; b < message.Count(); b++)
             {
@@ -350,6 +348,8 @@ namespace seaBass
             List<Int32> Eightindex = new List<Int32>();
             List<Int32> Nineindex = new List<Int32>();
             List<Int32> Exclamationpointindex = new List<Int32>();
+          //  List<Int32> forwardSlashIndex = new List<Int32>();
+          //  List<Int32> backwardSlashIndex = new List<Int32>();
             List<List<Int32>> Distribution = new List<List<Int32>>();
             Distribution.Add(Aindex); //0
             Distribution.Add(Bindex); //1
@@ -392,6 +392,8 @@ namespace seaBass
             Distribution.Add(Nineindex);//4
             Distribution.Add(Exclamationpointindex);
             Distribution.Add(Commaindex);
+         //   Distribution.Add(forwardSlashIndex);
+           // Distribution.Add(backwardSlashIndex);
 
 
             List<Char> alphabetList = new List<char>();
