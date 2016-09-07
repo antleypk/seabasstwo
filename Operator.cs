@@ -16,8 +16,8 @@ namespace seaBass
 
         public void decrypt()
         {
-            DecyptFrm decypt = new DecyptFrm();
-            decypt.Show();
+            DecryptFrm decrypt = new DecryptFrm();
+            decrypt.Show();
         }
 
         public void encrypt()

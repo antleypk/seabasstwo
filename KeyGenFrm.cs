@@ -25,42 +25,54 @@ namespace seaBass
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
-            string passPhrase = lblStringIn.Text;
-            Int32 length;
+
+
+            //in an'
+         //   if(!(txtinputlength.Text == "" || txtStringIn.Text == "" || txtRatioIN.Text == ""))
+            {
+                string passPhrase = lblStringIn.Text;
+                Int32 length;
+
+                bool parse;
+                string lengthString = txtinputlength.Text;
+                parse = Int32.TryParse(lengthString, out length);
+
+                bool parse2;
+                int ratio;
+                string ratioString = txtRatioIN.Text;
+                parse2 = int.TryParse(ratioString, out ratio);
+
+
+                //if (length <= 100000)
+                //{
+                //    genKey(length, ratio);
+                //}
+                //if (length > 100000)
+                //{
+                //    txtinputlength.Text = "For preformance reasons must be less than 100,000";
+                //}
+
+                genKey(length, ratio);
+            }
             
-            bool parse;
-            string lengthString = txtinputlength.Text; 
-            parse=Int32.TryParse(lengthString, out length);
-
-            bool parse2;
-            int ratio;
-            string ratioString = txtRatioIN.Text;
-            parse2 = int.TryParse(ratioString, out ratio);
 
 
-            //if (length <= 100000)
-            //{
-            //    genKey(length, ratio);
-            //}
-            //if (length > 100000)
-            //{
-            //    txtinputlength.Text = "For preformance reasons must be less than 100,000";
-            //}
-
-            genKey(length, ratio);
+            
         }
         private void genKey(int length, int ratio)
         {
             string key = "";
             Concealer keyGen = new Concealer();
+          
             String input = txtStringIn.Text;
 
 
 
-
-            key = keyGen.keyGen(length,input,ratio);
+            string test = "length: " + length + " ratio " + ratio + " input " + input;
+              key = keyGen.keyGen(length,input,ratio);
             //txtKeyOutput.Text = "hello world "+key.Count()+"!";
             txtKeyOutput.Text = key;
+           // txtKeyOutput.Text = test;
         }
         private void groupBox1_Enter(object sender, EventArgs e)
         {

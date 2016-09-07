@@ -22,19 +22,19 @@ namespace seaBass
 
             Operator operations = new Operator();
 
-            if (rdioKeyGen.Checked == true)
+            if (radioKeyGen.Checked == true)
             {
                 this.Hide();
                 operations.keyGen();
 
             }
-            if (rdioEncrypt.Checked == true)
+            if (radioEncrypt.Checked == true)
             {
                 operations.encrypt();
                 this.Hide();
                 //taco
             }
-            if (radioDycrpt.Checked == true)
+            if (radioDecrypt.Checked == true)
             {
                 operations.decrypt();
                 this.Hide();
@@ -48,6 +48,16 @@ namespace seaBass
 
             }
 
+
+        }
+
+        private void radioEncrypt_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Loop_Load(object sender, EventArgs e)
+        {
 
         }
     }

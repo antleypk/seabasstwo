@@ -112,7 +112,7 @@ namespace seaBass
         }
 
 
-        public string keyGenWstar(string starter, long length)
+        public string keyGenWstar(string starter, long length,int ratio)
         {
             string key = "Hello World";
 
@@ -139,8 +139,9 @@ namespace seaBass
             return s;
         }
         public string keyGen(int length, string StartString, int ratio)
-
+            
         {
+            string tomstest = "";
             if (StartString.Count() < 5)
             {
                    StartString = "abcdefghijklmnopqrstuvwxyz .@0123456789";
@@ -151,24 +152,19 @@ namespace seaBass
             List<double> means = new List<double>() { .8, .2, .3, .4, 1.3, .2, .2, .6, 1.7, .1, .1, .4, .3, .7, .8, .2, .1, .6, .6, .9, .3, .1, .2, .1, .2, .1, .5, .5, .2, .2, .2, .2, .2, .2, .2, .2, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 8 };
             Random rend = new Random();
             string key = "";
-            int count = 0;
+           
+            //length = 0;
             while (key.Count() < length)
             {
-
-
-                if (count == ratio)
-                {
-                  
-
-                }
-                else
-                {
+                
 
                     for (int i = 0; i < (means.Count()); i++)
                     {
 
                         double CDF = 0;
                         double rendomnumber = rend.Next(0, 10000);
+
+                    
                         for (int m = 0; m < 10; m++)
                         {
                             double lambda = means[i];
@@ -177,33 +173,40 @@ namespace seaBass
                             {
                                 for (int n = 0; n < m; n++)
                                 {
-                                   
-                                    if (count < ratio)
-                                    {
-                                       key += Characters[i];
-                                  //     key += "^";
-                                        count += 1;
-                                    }
-                                    
+                                    key += Characters[i];
                                 }
-                                
                             }
-                            if (count == ratio)
+                            CDF = CDF + poisson;
+                            if (CDF > rendomnumber / 10000)
                             {
-                                int sstringIndex = rend.Next(0, StartString.Count());
-                                char temp=StartString.ElementAt(sstringIndex);
-                                //   key += temp;
-                                key += "*";
-                                count = 0;
+                                m = 10;
                             }
                         }
-                    }
+                    
 
                 }
             }
-         
-          //  return key;
-               return shuffle(key);
+            int count = 0;
+            string addedkey = "";
+            Random newrandom = new Random();
+            for (int i = 0; i < key.Length; i++)
+            {
+                
+                if(count == ratio)
+                {
+                    
+                    int index = newrandom.Next(0,StartString.Count());
+                    for (int p = 0; p < 2; p++)
+                    {
+                        addedkey += StartString[index];
+                    }
+                    count = 0;
+                }
+                count++;
+            }
+            //return "proof";
+            return key + addedkey;
+               //return shuffle(key);
         }
         int Factorial(int i)
         {

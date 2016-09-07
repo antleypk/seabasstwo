@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace seaBass
 {
-    public partial class DecyptFrm : Form
+    public partial class DecryptFrm : Form
     {
-        public DecyptFrm()
+        public DecryptFrm()
         {
             InitializeComponent();
         }
@@ -21,16 +21,16 @@ namespace seaBass
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtCodeIn.ResetText();
-            txtDecyptKeyIn.ResetText();
+            txtDecryptKeyIn.ResetText();
             txtCodeOut.ResetText();
         }
 
-        private void DecyptFrm_Load(object sender, EventArgs e)
+        private void DecryptFrm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void txtDecyptKeyIn_TextChanged(object sender, EventArgs e)
+        private void txtDecryptKeyIn_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -48,7 +48,7 @@ namespace seaBass
         private void btnProcess_Click(object sender, EventArgs e)
         {
             Concealer reveal = new Concealer();
-            string key = txtDecyptKeyIn.Text;
+            string key = txtDecryptKeyIn.Text;
             string messageIn = txtCodeIn.Text;
             string messageOut = reveal.deConCeal(messageIn, key);
             txtCodeOut.Text = messageOut;

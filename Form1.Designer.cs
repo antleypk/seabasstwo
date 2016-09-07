@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.radioKeyGen = new System.Windows.Forms.RadioButton();
-            this.radioEncypt = new System.Windows.Forms.RadioButton();
+            this.radioEncrypt = new System.Windows.Forms.RadioButton();
             this.radioDecrypt = new System.Windows.Forms.RadioButton();
             this.groupBoxStartOptions = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,27 +50,28 @@
             this.radioKeyGen.TabStop = true;
             this.radioKeyGen.Text = "Key Generate";
             this.radioKeyGen.UseVisualStyleBackColor = true;
+            this.radioKeyGen.CheckedChanged += new System.EventHandler(this.radioKeyGen_CheckedChanged);
             // 
-            // radioEncypt
+            // radioEncrypt
             // 
-            this.radioEncypt.AutoSize = true;
-            this.radioEncypt.Location = new System.Drawing.Point(42, 48);
-            this.radioEncypt.Name = "radioEncypt";
-            this.radioEncypt.Size = new System.Drawing.Size(72, 21);
-            this.radioEncypt.TabIndex = 1;
-            this.radioEncypt.TabStop = true;
-            this.radioEncypt.Text = "Encytp";
-            this.radioEncypt.UseVisualStyleBackColor = true;
+            this.radioEncrypt.AutoSize = true;
+            this.radioEncrypt.Location = new System.Drawing.Point(42, 48);
+            this.radioEncrypt.Name = "radioEncrypt";
+            this.radioEncrypt.Size = new System.Drawing.Size(77, 21);
+            this.radioEncrypt.TabIndex = 1;
+            this.radioEncrypt.TabStop = true;
+            this.radioEncrypt.Text = "Encrypt";
+            this.radioEncrypt.UseVisualStyleBackColor = true;
             // 
             // radioDecrypt
             // 
             this.radioDecrypt.AutoSize = true;
             this.radioDecrypt.Location = new System.Drawing.Point(42, 75);
             this.radioDecrypt.Name = "radioDecrypt";
-            this.radioDecrypt.Size = new System.Drawing.Size(73, 21);
+            this.radioDecrypt.Size = new System.Drawing.Size(78, 21);
             this.radioDecrypt.TabIndex = 2;
             this.radioDecrypt.TabStop = true;
-            this.radioDecrypt.Text = "Decypt";
+            this.radioDecrypt.Text = "Decrypt";
             this.radioDecrypt.UseVisualStyleBackColor = true;
             this.radioDecrypt.CheckedChanged += new System.EventHandler(this.radioDecrypt_CheckedChanged);
             // 
@@ -78,7 +79,7 @@
             // 
             this.groupBoxStartOptions.Controls.Add(this.radioKeyGen);
             this.groupBoxStartOptions.Controls.Add(this.radioDecrypt);
-            this.groupBoxStartOptions.Controls.Add(this.radioEncypt);
+            this.groupBoxStartOptions.Controls.Add(this.radioEncrypt);
             this.groupBoxStartOptions.Location = new System.Drawing.Point(73, 82);
             this.groupBoxStartOptions.Name = "groupBoxStartOptions";
             this.groupBoxStartOptions.Size = new System.Drawing.Size(208, 115);
@@ -162,7 +163,7 @@
         #endregion
 
         private System.Windows.Forms.RadioButton radioKeyGen;
-        private System.Windows.Forms.RadioButton radioEncypt;
+        private System.Windows.Forms.RadioButton radioEncrypt;
         private System.Windows.Forms.RadioButton radioDecrypt;
         private System.Windows.Forms.GroupBox groupBoxStartOptions;
         private System.Windows.Forms.Label label1;

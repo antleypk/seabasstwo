@@ -46,7 +46,7 @@ namespace seaBass
                 operations.decrypt();
     
             }
-            if (radioEncypt.Checked == true)
+            if (radioEncrypt.Checked == true)
             {
                 operations.encrypt();
                 this.Hide();
@@ -70,7 +70,7 @@ namespace seaBass
 
         public void resetStartButtons()
         {
-            radioEncypt.Checked = false;
+            radioEncrypt.Checked = false;
             radioDecrypt.Checked = false;
             radioKeyGen.Checked = false;
         }
@@ -81,6 +81,11 @@ namespace seaBass
             radioDecrypt.Checked = true;
 
            
+        }
+
+        private void radioKeyGen_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

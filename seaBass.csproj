@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concealer.cs" />
-    <Compile Include="DecyptFrm.cs">
+    <Compile Include="DecryptFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DecyptFrm.Designer.cs">
-      <DependentUpon>DecyptFrm.cs</DependentUpon>
+    <Compile Include="DecryptFrm.Designer.cs">
+      <DependentUpon>DecryptFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     <Compile Include="Operator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DecyptFrm.resx">
-      <DependentUpon>DecyptFrm.cs</DependentUpon>
+    <EmbeddedResource Include="DecryptFrm.resx">
+      <DependentUpon>DecryptFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

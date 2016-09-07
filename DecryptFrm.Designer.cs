@@ -1,6 +1,6 @@
 ﻿namespace seaBass
 {
-    partial class DecyptFrm
+    partial class DecryptFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblDecryptKey = new System.Windows.Forms.Label();
-            this.txtDecyptKeyIn = new System.Windows.Forms.TextBox();
+            this.txtDecryptKeyIn = new System.Windows.Forms.TextBox();
             this.txtCodeIn = new System.Windows.Forms.TextBox();
             this.txtCodeOut = new System.Windows.Forms.TextBox();
             this.lblKeyIn = new System.Windows.Forms.Label();
@@ -51,12 +51,12 @@
             // 
             // txtDecyptKeyIn
             // 
-            this.txtDecyptKeyIn.Location = new System.Drawing.Point(70, 68);
-            this.txtDecyptKeyIn.Multiline = true;
-            this.txtDecyptKeyIn.Name = "txtDecyptKeyIn";
-            this.txtDecyptKeyIn.Size = new System.Drawing.Size(310, 52);
-            this.txtDecyptKeyIn.TabIndex = 1;
-            this.txtDecyptKeyIn.TextChanged += new System.EventHandler(this.txtDecyptKeyIn_TextChanged);
+            this.txtDecryptKeyIn.Location = new System.Drawing.Point(70, 68);
+            this.txtDecryptKeyIn.Multiline = true;
+            this.txtDecryptKeyIn.Name = "txtDecryptKeyIn";
+            this.txtDecryptKeyIn.Size = new System.Drawing.Size(310, 52);
+            this.txtDecryptKeyIn.TabIndex = 1;
+            this.txtDecryptKeyIn.TextChanged += new System.EventHandler(this.txtDecryptKeyIn_TextChanged);
             // 
             // txtCodeIn
             // 
@@ -134,7 +134,7 @@
             this.btnCopyDecode.UseVisualStyleBackColor = true;
             this.btnCopyDecode.Click += new System.EventHandler(this.btnCopyDecode_Click);
             // 
-            // DecyptFrm
+            // DecryptFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,11 +147,11 @@
             this.Controls.Add(this.lblKeyIn);
             this.Controls.Add(this.txtCodeOut);
             this.Controls.Add(this.txtCodeIn);
-            this.Controls.Add(this.txtDecyptKeyIn);
+            this.Controls.Add(this.txtDecryptKeyIn);
             this.Controls.Add(this.lblDecryptKey);
-            this.Name = "DecyptFrm";
+            this.Name = "DecryptFrm";
             this.Text = "Show me the message";
-            this.Load += new System.EventHandler(this.DecyptFrm_Load);
+            this.Load += new System.EventHandler(this.DecryptFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,7 +160,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblDecryptKey;
-        private System.Windows.Forms.TextBox txtDecyptKeyIn;
+        private System.Windows.Forms.TextBox txtDecryptKeyIn;
         private System.Windows.Forms.TextBox txtCodeIn;
         private System.Windows.Forms.TextBox txtCodeOut;
         private System.Windows.Forms.Label lblKeyIn;
