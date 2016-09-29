@@ -205,8 +205,8 @@ namespace seaBass
                 count++;
             }
             //return "proof";
-            return key + addedkey;
-               //return shuffle(key);
+          //  return key + addedkey;
+               return shuffle(key);
         }
         int Factorial(int i)
         {
